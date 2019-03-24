@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <report string="Attestation"
+                id="report_attestation"
+                model="formation.attestation"
+                report_type="qweb-pdf"
+                name="GestionFormation.report_attestation_template"
+        />
+        <record id="paperformat_specifique" model="report.paperformat">
+            <field name="name">Attestation Format</field>
+            <field name="default" eval="False"/>
+            <field name="format">custom</field>
+            <field name="page_height">210</field>
+            <field name="page_width">290</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">35</field>
+            <field name="margin_bottom">35</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="GestionFormation.report_attestation" model="ir.actions.report">
+            <field name="paperformat_id" ref="GestionFormation.paperformat_specifique"></field>
+        </record>
+
+        <template id="report_attestation_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div style="border:solid;">
+                            <h1 align="center" style="padding-top:10%">Attestation</h1>
+                            <hr/>
+
+                            <div style="padding-top:5%;
+                                        padding-bottom:5%;
+                                        font-size:23px;
+                                        padding-left:1%;
+                                        border: dotted;
+                                        border-radius: 1%;
+                                        width:80%;
+                                        margin-left:10%;">
+                                <div style="padding-left:2%;">
+                                    <p>
+                                        <b>Candidat :</b>
+                                        <span t-field="doc.candidat.name"/>
+                                    </p>
+                                    <p>
+                                        <b>Formation :</b>
+                                        <span t-field="doc.formation.name"/>
+                                    </p>
+                                    <p>
+                                        <b>Categorie :</b>
+                                        <span t-field="doc.formation.categorie"/>
+                                    </p>
+                                </div>
+                                <hr/>
+                                <p>
+                                    <h2>Suit a votre Serieux et conssistance on vous honore .Suit a votre Serieux et
+                                        conssistance on vous honore .
+                                        Suit a votre Serieux et conssistance on vous honore .Suit a votre Serieux et
+                                        conssistance on vous honore .
+                                        Suit a votre Serieux et conssistance on vous honore .
+                                    </h2>
+                                </p>
+
+                                <hr/>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+
+        </template>
+    </data>
+</odoo>

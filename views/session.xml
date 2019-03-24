@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<odoo>
+
+    <data>
+        <record id="sessionForm" model="ir.ui.view">
+
+            <field name="name">sesssion.form</field>
+
+            <field name="model">session</field>
+
+            <field name="type">form</field>
+
+
+            <field name="arch" type="xml">
+
+
+                <form string="session">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="a,b"
+                               clickable="1">
+                        </field>
+                        <button string="creer atestation" type="action" name="%(action_wattestation)d"
+                        groups="GestionFormation.groupe_gerant,base.group_system"
+                        />
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+
+                        <notebook>
+                            <page string="modification">
+                                <group>
+                                    <field name="nb_participant"/>
+                                    <field name="duree"/>
+                                </group>
+
+                                <group>
+                                    <field name="date_fin"/>
+
+                                    <field name="date_debut"/>
+
+                                </group>
+
+                                <group>
+
+                                    <field name="formationId"/>
+                                    <field name="categorie"/>
+                                    <field name="salle_ids"/>
+                                    <field name="formateur_ids"/>
+                                    <field name="candidat_ids"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+
+                </form>
+
+            </field>
+
+        </record>
+
+
+        <record id="sessionTree" model="ir.ui.view">
+
+            <field name="name">session.tree</field>
+
+            <field name="model">session</field>
+
+            <field name="type">tree</field>
+
+
+            <field name="arch" type="xml">
+
+
+                <tree string="session">
+
+
+                    <field name="name"/>
+
+                    <field name="nb_participant"/>
+
+                    <field name="date_debut"/>
+
+
+                    <field name="date_fin"/>
+
+                    <field name="duree"/>
+
+                    <field name="state"/>
+                    <field name="salle_ids"/>
+                    <field name="formateur_ids"/>
+                    <field name="candidat_ids"/>
+                </tree>
+
+            </field>
+
+        </record>
+
+
+        <record id="actionsession" model="ir.actions.act_window">
+
+            <field name="name">Session</field>
+
+            <field name="res_model">session</field>
+
+            <field name="view_type">form</field>
+
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+
+        <menuitem id="id_session" name="session" parent="id_gestion_formation_gauche" action="actionsession"/>
+
+        <!--menuitem id="id_candidat" parent="id_gestion_formation_gauche" name="candidat" action="actionCandidat"/><menuitem id="id_formateur" parent="id_gestion_formation_gauche" name="formateur" action="actionFormateur"/><menuitem id="id_salle" parent="id_gestion_formation_gauche" name="salle" action="actionSalle"/-->
+    </data>
+
+</odoo>

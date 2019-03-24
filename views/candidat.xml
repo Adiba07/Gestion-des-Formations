@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<odoo>
+
+    <data>
+        <record id="candidat_view_form" model="ir.ui.view">
+
+            <field name="name">candidat.view.form</field>
+
+            <field name="model">formation.candidat</field>
+
+            <field name="type">form</field>
+
+
+            <field name="arch" type="xml">
+
+
+                <form string="candidat">
+                    <sheet>
+
+
+                        <notebook>
+                            <page string="page 1">
+                                <group>
+                                    <field name="num_ins"/>
+                                </group>
+                                <group>
+                                    <field name="name"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+
+                </form>
+
+            </field>
+
+        </record>
+
+
+        <record id="candidat_view_tree" model="ir.ui.view">
+
+            <field name="name">candidat.view.tree</field>
+
+            <field name="model">formation.candidat</field>
+
+            <field name="type">tree</field>
+
+
+            <field name="arch" type="xml">
+
+
+                <tree string="candidat">
+                    <field name="name"/>
+                    <field name="num_ins"/>
+                </tree>
+
+            </field>
+
+        </record>
+
+
+        <record id="action_candidat" model="ir.actions.act_window">
+
+            <field name="name">candidat</field>
+
+            <field name="res_model">formation.candidat</field>
+
+            <field name="view_type">form</field>
+
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <menuitem id="id_candidat" name="candidat" parent="id_gestion_formation_gauche" action="action_candidat"/>
+
+    </data>
+
+</odoo>

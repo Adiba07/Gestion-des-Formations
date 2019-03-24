@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<odoo>
+
+    <data>
+
+        <record id="wattestation_view_form" model="ir.ui.view">
+
+            <field name="name">wizard.attestation.view.form</field>
+
+            <field name="model">foramtion.wizard_attestation</field>
+
+            <field name="type">form</field>
+
+
+            <field name="arch" type="xml">
+                <form string="attestation">
+                    <group>
+                        <field name="date"/>
+                    </group>
+                     <group>
+                        <field name="description"/>
+                    </group>
+                    <group>
+                        <field name="candidat_ids"/>
+                    </group>
+                <footer>
+                    <button name="action_done" string="Confirmer" type="object" class="oe_highlight"/>
+                    ou
+                    <button  string="Annuler" type="object" class="oe_link" special="cancel"/>
+                </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wattestation" model="ir.actions.act_window">
+
+            <field name="name">attestation</field>
+
+            <field name="res_model">foramtion.wizard_attestation</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+
+        </record>
+
+    </data>
+
+</odoo>

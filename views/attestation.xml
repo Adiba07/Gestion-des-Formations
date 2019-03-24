@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<odoo>
+
+    <data>
+        <record id="attestation_view_form" model="ir.ui.view">
+
+            <field name="name">attestation.view.form</field>
+
+            <field name="model">formation.attestation</field>
+
+            <field name="type">form</field>
+
+
+            <field name="arch" type="xml">
+
+
+                <form string="attestation">
+                    <sheet>
+                        <group>
+                            <field name="description"/>
+                            <field name="date"/>
+                        </group>
+
+                        <notebook>
+                            <page string="page 1">
+                                <group>
+                                    <field name="candidat"/>
+                                    <field name="formation"/>
+
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+
+                </form>
+
+            </field>
+
+        </record>
+
+
+        <record id="attestation_view_tree" model="ir.ui.view">
+
+            <field name="name">attestation.view.tree</field>
+
+            <field name="model">formation.attestation</field>
+
+            <field name="type">tree</field>
+
+
+            <field name="arch" type="xml">
+
+
+                <tree string="attestation">
+                    <field name="candidat"/>
+                    <field name="formation"/>
+                    <field name="description"/>
+                    <field name="date"/>
+                </tree>
+
+            </field>
+
+        </record>
+
+
+        <record id="action_attestation" model="ir.actions.act_window">
+
+            <field name="name">attestation</field>
+
+            <field name="res_model">formation.attestation</field>
+
+            <field name="view_type">form</field>
+
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <menuitem id="id_attestation" name="attestation" parent="id_gestion_formation_gauche"
+                  action="action_attestation"/>
+
+    </data>
+
+</odoo>

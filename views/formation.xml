@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<odoo>
+
+    <data>
+        <record id="FormationForm" model="ir.ui.view">
+
+            <field name="name">formation.form.vue</field>
+
+            <field name="model">formation.formation</field>
+
+            <field name="type">form</field>
+
+
+            <field name="arch" type="xml">
+
+
+                <form string="Formation">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="prix"/>
+                            <field name="categorie"/>
+                            <!--field name="sessionId"/-->
+                        </group>
+                    </sheet>
+                </form>
+
+            </field>
+
+        </record>
+
+
+        <record id="FormationTree" model="ir.ui.view">
+
+            <field name="name">foramtion.tree.vue</field>
+
+            <field name="model">formation.formation</field>
+
+            <field name="type">tree</field>
+
+
+            <field name="arch" type="xml">
+
+
+                <tree string="Formation">
+
+                    <field name="name"/>
+
+                    <field name="prix"/>
+                    <field name="categorie"/>
+
+                    <!--field name="sessionId"/-->
+
+                </tree>
+
+            </field>
+
+        </record>
+        <record id="Formation_kanban" model="ir.ui.view">
+            <field name="name">foramtion.kanban</field>
+            <field name="model">formation.formation</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <!--field name="sessionId"/-->
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_resource_details">
+                                <ul>
+                                    <li>
+                                        <field name="name"/>
+                                    </li>
+                                    <li>
+                                        <field name="prix"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="actionFormation" model="ir.actions.act_window">
+
+
+            <field name="name">Formation.Action</field>
+
+            <field name="res_model">formation.formation</field>
+
+            <field name="view_type">form</field>
+
+            <field name="view_mode">tree,form,kanban</field>
+
+        </record>
+
+        <menuitem id="id_gestion_formation" name="Gestion des formations"/>
+
+        <menuitem id="id_gestion_formation_gauche" name="Gestion des formations" parent="id_gestion_formation"/>
+
+        <menuitem id="id_formation" name="formation" parent="id_gestion_formation_gauche" action="actionFormation"/>
+
+        <!--menuitem id="id_session" name="session" parent="id_gestion_formation_gauche" action="actionSession"/-->
+
+        <!--menuitem id="id_candidat" parent="id_gestion_formation_gauche" name="candidat" action="actionCandidat"/><menuitem id="id_formateur" parent="id_gestion_formation_gauche" name="formateur" action="actionFormateur"/><menuitem id="id_salle" parent="id_gestion_formation_gauche" name="salle" action="actionSalle"/-->
+    </data>
+
+</odoo>

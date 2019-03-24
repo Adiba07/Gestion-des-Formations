@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<odoo>
+
+    <data>
+        <record id="salle_view_form" model="ir.ui.view">
+
+            <field name="name">salle.view.form</field>
+
+            <field name="model">formation.salle</field>
+
+            <field name="type">form</field>
+
+
+            <field name="arch" type="xml">
+
+
+                <form string="Formation">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="libre"/>
+                            <field name="nb_place"/>
+                        </group>
+                    </sheet>
+                </form>
+
+            </field>
+
+        </record>
+
+
+          <record id="salleTree" model="ir.ui.view">
+
+            <field name="name">salle.tree</field>
+
+            <field name="model">formation.salle</field>
+
+            <field name="type">tree</field>
+
+
+            <field name="arch" type="xml">
+                <tree string="session">
+                    <field name="name"/>
+                    <field name="libre"/>
+                </tree>
+
+            </field>
+
+        </record>
+
+
+        <record id="action_salle" model="ir.actions.act_window">
+
+            <field name="name">Salle</field>
+
+            <field name="res_model">formation.salle</field>
+
+            <field name="view_type">form</field>
+
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <menuitem id="id_salle" name="salles" parent="id_gestion_formation_gauche" action="action_salle"/>
+
+    </data>
+
+</odoo>
